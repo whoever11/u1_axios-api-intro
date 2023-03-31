@@ -234,6 +234,36 @@ let dogPic = response.data.message
 imageDiv.innerHTML = `<img src=${dogPic}>`
 ```
 
+
+At the end, our JS should look something like this:
+
+```js
+const button = document.querySelector('button')
+const breedInput = document.querySelector('input')
+const imageDiv = document.querySelector('div')
+
+//pulls all breeds and logs to the console
+const getBreeds = async () => {
+    const dogbreeds = await axios.get('https://dog.ceo/api/breeds/list/all')
+    console.log(dogbreeds.data.message)
+  }
+
+  getBreeds()
+
+
+//reads our Input value and makes the interactive API call
+button.addEventListener('click', async ()=> {
+    let breed = breedInput.value
+    let response = await axios.get(
+        `https://dog.ceo/api/breed/${breed}/images/random`
+      )
+      //drilling our data response
+      let dogPic = response.data.message
+      //setting our DOM image
+      imageDiv.innerHTML = `<img src=${dogPic}>`
+})
+```
+
 ## Recap
 
 If you're feeling confused about anything, don't worry! This is just our introduction to APIs. We'll be exploring them at much further length very soon. APIs can be difficult and some are more tricky to use than others, but we hope this helps you feel like you have a basic understanding of the pieces necessary for a successful axios API call.
