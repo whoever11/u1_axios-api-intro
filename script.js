@@ -6,11 +6,8 @@
 //axios is a library that makes it easier to make http requests to our server
 // THIS IS THE SCRIPT TO COPY <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-const myFunction = async () => {
-    console.log('first')
-    await axios.get('https://dog.ceo/api/breeds/list/all').then(function () {
-      console.log('second')
-    })
-    console.log('third')
-  }
-  myFunction()
+const getBreeds = async () => {
+    const dogBreeds = await axios.get('https://dog.ceo/api/breeds/list/all')
+    console.log(dogBreeds)
+    }
+    getBreeds()
