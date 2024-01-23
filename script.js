@@ -8,6 +8,6 @@
 
 const getBreeds = async () => {
     const dogBreeds = await axios.get('https://dog.ceo/api/breeds/list/all')
-    console.log(dogBreeds)
+    console.log(dogBreeds.data.message)
     }
     getBreeds()
